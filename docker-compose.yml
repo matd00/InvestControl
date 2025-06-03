@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: matheus
+      POSTGRES_PASSWORD: 2924
+      POSTGRES_DB: data
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: investcontrol_app
+    restart: always
+    environment:
+      DATABASE_URL: postgres://matheus:2924@db:5432/data
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+
+volumes:
+  pgdata:
+
