@@ -1,0 +1,259 @@
+:root {
+  --primary: #ffffff;
+  --secondary: #ffffff;
+  --accent: #000000;
+  --bg: #F4EFEA;
+  --card-bg: #000000;
+  --text: #272626;
+  --muted: #ffffff;
+  --shadow: rgba(255, 255, 255, 0.08);
+}
+
+body.dark {
+  --primary: #f4f1ee;
+  --secondary: #1b1b1b;
+  --accent: #7e7c7c;
+  --bg: #121212;
+  --card-bg: #1e1e1e;
+  --text: #f2f2f2;
+  --muted: #b5b5b5;
+  --shadow: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+}
+
+header {
+  background: var(--secondary);
+  box-shadow: 0 0 15px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+}
+
+#toggle-theme {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--accent);
+  transition: transform 0.3s;
+}
+
+#toggle-theme:hover {
+  transform: scale(1.2);
+}
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: rgb(255, 255, 255);
+  padding: 5rem 2rem;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.btn {
+  background: rgb(231, 213, 213);
+  color: var(--primary);
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(134, 132, 132, 0.2);
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  justify-content: center;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.card {
+  flex: 1 1 300px;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px var(--shadow);
+  border: 1px solid #e4e4e4;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: var(--primary);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+  color: var(--primary);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+footer {
+  background: var(--secondary);
+  color: #d1d5db;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero h2 {
+    font-size: 2.2rem;
+  }
+
+  .features {
+    flex-direction: column;
+  }
+
+  .card {
+    margin-bottom: 2rem;
+  }
+}

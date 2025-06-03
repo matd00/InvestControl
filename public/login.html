@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | InvestControl</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .login-container {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--bg);
+      padding: 2rem;
+    }
+
+    .login-card {
+      background: var(--card-bg);
+      padding: 3rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px var(--shadow);
+      width: 100%;
+      max-width: 400px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .login-card h2 {
+      color: var(--text);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .login-card input {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      margin-bottom: 1.5rem;
+      border: none;
+      border-radius: 8px;
+      background: var(--secondary);
+      color: var(--text);
+      font-size: 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .login-card input:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .login-card button {
+      width: 100%;
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.9rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .login-card button:hover {
+      background: var(--text);
+      transform: scale(1.02);
+    }
+
+    .toggle-theme {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .toggle-theme:hover {
+      text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+<div class="login-container">
+    <div class="login-card">
+    <h2>Entrar no InvestControl</h2>
+    <form>
+        <input type="email" placeholder="E-mail" required />
+        <input type="password" placeholder="Senha" required />
+        <button type="submit">Entrar</button>
+    </form>
+    <div class="toggle-theme" onclick="toggleTheme()">Alternar modo escuro</div>
+    </div>
+</div>
+
+<script>
+    function toggleTheme() {
+    document.body.classList.toggle('dark');
+    }
+</script>
+</body>
+</html>
