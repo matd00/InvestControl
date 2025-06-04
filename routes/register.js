@@ -3,9 +3,17 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const { AddUser } = require('../db/features/addToTable');
 const { fetchUserByEmail } = require('../db/features/Search');
-
+const validator = require('validator');
 router.post('/', async (req, res) => {
     const { name, email, password } = req.body;
+
+    if (!validator.isEmail(email)) {
+    return res.status(400).json({ error: 'E-mail inválido.' });
+    }
+
+    if (password.length < 8) {
+        return res.status(400).json({ error: 'Senha deve ter pelo menos 8 caracteres.' });
+    }
 
     try {
         const existingUser = await fetchUserByEmail(email);
