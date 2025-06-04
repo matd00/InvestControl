@@ -7,7 +7,7 @@ function showMessage(text, isError = false, timeoutDuration = 3000) {
         msgDiv.style.display = 'none';
     }, timeoutDuration);
 }
-
+// responsavel register
 // Carrega a function apenas depois do HTML ser carregado
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.querySelector('#register-card form');
