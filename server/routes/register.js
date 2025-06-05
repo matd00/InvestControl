@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const { AddUser } = require('../db/features/addToTable');
-const { fetchUserByEmail } = require('../db/features/Search');
+const { AddUser } = require('../models/db/features/addToTable');
+const { fetchUserByEmail } = require('../models/db/features/Search');
 const validator = require('validator');
+
 router.post('/', async (req, res) => {
     const { name, email, password } = req.body;
 
     if (!validator.isEmail(email)) {
-    return res.status(400).json({ error: 'E-mail inválido.' });
+    return res.status(400).json({ error: '"Não foi possível completar o registro. Verifique os dados e tente novamente.".' });
     }
 
     if (password.length < 8) {
@@ -18,7 +19,7 @@ router.post('/', async (req, res) => {
     try {
         const existingUser = await fetchUserByEmail(email);
         if (existingUser) {
-            return res.status(400).json({ error: 'Usuário já existe' });
+            return res.status(400).json({ error: '"Não foi possível completar o registro. Verifique os dados e tente novamente."' });
         }
             // hash da senha //
         const saltRounds = 10;

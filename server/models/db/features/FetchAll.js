@@ -1,4 +1,4 @@
-const pool = require('../connection/connectionPostgres');
+const pool = require('../connectionPostgres');
 
 async function fetchAllUsers() {
     try {
