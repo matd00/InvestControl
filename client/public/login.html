@@ -4,127 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login | InvestControl</title>
-  <link rel="stylesheet" href="/style.css" />
-  <style>:root {
-      --bg: #121212;
-      --card-bg: #1e1e1e;
-      --text: #ffffff;
-      --secondary: #2c2c2c;
-      --accent: #ffffff;
-      --primary: #000000;
-      --shadow: rgba(0, 0, 0, 0.5);
-      --muted: #aaaaaa;
-}
-
-    .login-container {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: var(--bg);
-      padding: 2rem;
-    }
-
-    .login-card {
-      background: var(--card-bg);
-      padding: 3rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px var(--shadow);
-      width: 100%;
-      max-width: 400px;
-      animation: fadeInUp 1s ease;
-    }
-
-    .login-card h2 {
-      color: var(--text);
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .login-card input {
-      width: 100%;
-      padding: 0.9rem 1rem;
-      margin-bottom: 1.5rem;
-      border: none;
-      border-radius: 8px;
-      background: var(--secondary);
-      color: var(--text);
-      font-size: 1rem;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .login-card input:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px var(--accent);
-    }
-
-    .login-card button {
-      width: 100%;
-      background: var(--accent);
-      color: var(--primary);
-      padding: 0.9rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .login-card button:hover {
-      background: var(--text);
-      transform: scale(1.02);
-    }
-
-    .toggle-link {
-      color: var(--muted);
-      text-align: center;
-      display: block;
-      margin-top: 1rem;
-      cursor: pointer;
-      text-decoration: underline;
-      .message {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #0c0c0c;
-      color: #fff;
-      padding: 16px 32px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      z-index: 1000;
-      font-size: 1.1em;
-      transition: opacity 0.3s;
-    }
-    .message.error {
-      background: #ffffff;
-}
-    }</style>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
 <div id="message" class="message" style="display:none;"></div>
 
 <div class="login-container">
-    <div class="login-card" id="login-card">
-        <h2>Entrar no InvestControl</h2>
-        <form>
-            <input id ="emailLogin" type="email" placeholder="E-mail" required />
-            <input id ="passwordLogin" type="password" placeholder="Senha" required />
-            <button type="submit">Entrar</button>
-        </form>
-        <button class="toggle-link" onclick="toggleForm()" role="button">Não tem conta? Registre-se</button>
-    </div>
-    <div class="login-card" id="register-card" style="display: none;">
-        <h2>Registrar no InvestControl</h2>
-        <form>
-            <input type="text" placeholder="Nome" required />
-            <input type="email" placeholder="E-mail" required />
-            <input type="password" placeholder="Senha" required />
-            <button id = "RegisterButton" type="submit">Registrar</button>
-        </form>
-        <button class="toggle-link" onclick="toggleForm()" role="button">Já tem conta? Entrar</button>
-    </div>
+  <div class="login-card" id="login-card">
+    <h2>Entrar no InvestControl</h2>
+    <form>
+      <input id="emailLogin" type="email" placeholder="E-mail" required />
+      <input id="passwordLogin" type="password" placeholder="Senha" required />
+      <button type="submit">Entrar</button>
+    </form>
+    <a class="toggle-link" href="/register" role="button">Não possui uma conta? Cadastre-se</a>
+  </div>
+
+  <div class="login-card" id="register-card" style="display: none;">
+    <h2>Registrar no InvestControl</h2>
+    <form>
+      <input type="text" placeholder="Nome" required />
+      <input type="email" placeholder="E-mail" required />
+      <input type="password" placeholder="Senha" required />
+      <button id="RegisterButton" type="submit">Registrar</button>
+    </form>
+    <button class="toggle-link" onclick="toggleForm()" role="button">Já tem conta? Entrar</button>
+  </div>
 </div>
 
 <script>
@@ -140,6 +46,8 @@
     }
   }
 </script>
-<script src="/index.js"></script>
 </body>
+<script src= "./login.js"></script>
 </html>
+
+

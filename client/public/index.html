@@ -6,6 +6,19 @@
 <title>InvestSmart - Controle de Investimentos</title>
 <link rel="stylesheet" href="/style.css" />
 </head>
+<script>
+    const header = document.querySelector('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+        header.classList.add('shrink');
+        } else {
+            header.classList.remove('shrink');
+        }
+    lastScroll = window.scrollY;
+});
+</script>
 <body>
 <header>
     <button id="toggle-theme" aria-label="Alternar tema">🌙</button>
@@ -21,12 +34,17 @@
     </nav>
     </div>
 </header>
+    <div class="search-bar">
+    <input type="text" id="asset-input" placeholder="Buscar ativo (ex: PETR4.SA, BTCUSD)" />
+    <button id="search-btn">Buscar</button>
+</div>
+<div id="asset-result"></div>
 
 <section class="hero">
     <div class="container">
     <h2>Gerencie seus investimentos com inteligência</h2>
     <p>Controle sua carteira, visualize lucros, e tome decisões baseadas em dados.</p>
-    <a href="/login" class="btn">Começar agora</a>
+    <a href="/login" class="main-btn">Começar agora</a>
     </div>
 </section>
 
@@ -55,6 +73,7 @@
 </body>
 </html>
 
+<script src="/js/register.js"></script>
 
 //modo escuro ->
 <script>
@@ -74,3 +93,5 @@
     localStorage.setItem("theme", isDark ? "dark" : "light");
     });
 </script>
+
+<script src="/js/index.js"></script>

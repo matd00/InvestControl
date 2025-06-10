@@ -1,11 +1,18 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const { AddUser } = require('../models/db/features/addToTable');
 const { fetchUserByEmail } = require('../models/db/features/Search');
 const validator = require('validator');
+const csrfProtection = require('../middleware/csurf');
 
-router.post('/', async (req, res) => {
+router.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', '..', 'client', 'public', 'register.html'));
+});
+
+router.post('/', csrfProtection, async (req, res) => {
+    console.log(req.body);
     const { name, email, password } = req.body;
 
     if (!validator.isEmail(email)) {
@@ -19,7 +26,7 @@ router.post('/', async (req, res) => {
     try {
         const existingUser = await fetchUserByEmail(email);
         if (existingUser) {
-            return res.status(400).json({ error: '"Não foi possível completar o registro. Verifique os dados e tente novamente."' });
+            return res.status(400).json({ error: 'Não foi possível completar o registro. Verifique os dados e tente novamente.' });
         }
             // hash da senha //
         const saltRounds = 10;
@@ -30,7 +37,7 @@ router.post('/', async (req, res) => {
 
         const user = await AddUser(name, email, hashedPassword);
 
-        res.status(201).json(user);
+        res.status(201).json({ message:'Usuário registrado com sucesso! '});
     } catch (err) {
         console.error('Erro ao registrar usuário:', err);
         res.status(500).json({ error: 'Erro interno ao registrar usuário' });
