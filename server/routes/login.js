@@ -5,10 +5,8 @@ const router = express.Router();
 const csrfProtection = require('../middleware/csurf');
 const { route } = require('.');
 
-//chave para token JWT
-
 //rota GET para exibir o formuladiro
-router.get('/', (req, res) => {
+router.get('/',  (req, res) => {
     res.sendFile(path.join(__dirname,'..','..','client', 'public', 'login.html'));
 });
 

@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (response.ok) {
                 showMessage('Usuário registrado com sucesso!');
-                window.location.href('./dashboard')
+                window.location.href = './dashboard';
             } else {
                 showMessage(data.error || 'Erro ao registrar usuário', true);
             }

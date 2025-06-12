@@ -534,3 +534,90 @@ header.shrink .logo {
   padding: 1.2rem 0;
   font-size: 1.1rem;
 }
+
+/* ...existing code... */
+
+.provento-card {
+  background: var(--card-bg);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 12px var(--shadow);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 420px;
+  animation: fadeInUp 0.8s;
+}
+
+.provento-card h2 {
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--muted);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.main-btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: var(--primary);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.main-btn:hover {
+  background: var(--primary);
+  color: var(--accent);
+}
+
+.message.success {
+  color: #2ecc40;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.user-info {
+  margin-left: 2rem;
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-info .logout-btn {
+  background: var(--accent);
+  color: var(--primary);
+  border: none;
+  border-radius: 8px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+.user-info .logout-btn:hover {
+  background: var(--primary);
+  color: var(--accent);
+}

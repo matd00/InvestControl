@@ -38,7 +38,7 @@ async function handleLogin(email, password) {
             console.log('Login bem-sucedido!', data);
             alert('Login bem-sucedido!');
             localStorage.setItem('token', data.token);
-            window.location.href = '/dashboard';
+            window.location.href = '/carteira';
         } else {
             console.warn('Erro ao fazer login:', data.error || data);
             throw new Error(data.error || 'Erro ao fazer login.');

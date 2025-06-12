@@ -1,0 +1,65 @@
+<script>
+    if (!localStorage.getItem('token')) {
+        window.location.href = '/login';
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Carteira | InvestSmart</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="/" class="logo">InvestSmart</a>
+        <nav>
+            <ul>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/carteira" class="active">Carteira</a></li>
+                <li><a href="/relatorios">Relatórios</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+        <div id="user-info" class="user-info"></div>
+    </div>
+</header>
+
+<main>
+    <section class="card provento-card">
+        <h2>Inserir Provento</h2>
+        <form id="provento-form">
+            <div class="form-group">
+                <label for="ativo">Ativo</label>
+                <input type="text" id="ativo" name="ativo" placeholder="Ex: PETR4" required>
+            </div>
+            <div class="form-group">
+                <label for="tipo">Tipo de Provento</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="">Selecione</option>
+                    <option value="dividendo">Dividendo</option>
+                    <option value="jcp">Juros sobre Capital Próprio</option>
+                    <option value="rendimento">Rendimento</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="valor">Valor Recebido (R$)</label>
+                <input type="number" id="valor" name="valor" step="0.01" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="data">Data do Provento</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+            <button type="submit" class="main-btn">Adicionar Provento</button>
+        </form>
+        <div id="provento-message" class="message" style="display:none;"></div>
+    </section>
+</main>
+
+<script src = '/js/carteira.js' ></script>
+<script src="/js/global.js"></script>
+</body>
+</html>
